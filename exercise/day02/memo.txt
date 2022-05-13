@@ -1,0 +1,94 @@
+날 마다 글을 쓴다는 건 자신이 원하는 바로 그 사람이 되는 것이다. 
+
+오늘부터 과제가 나감 
+github.com 에 해달 일자 폴더에 자신의 이름으로 작성해서 
+gdhong/
+제출시간 : 다음날 수업시간 전까지 09:00 
+          금요일일경우 24:00까지
+주석 : 
+- 처음보는 사람이 읽어도 이해할 수 있게 
+- 주석이 같으면 같은 사람 빵점
+
+수업일자 05.11 ~ 05.26 09:00 ~ 14:00
+
+- 오늘부터는  html css 진행 
+- 우리 수업의  핵심은 JavaScript
+- html을 알아서 사용할 수 있는 
+- 실무에서 기본적으로 사용하는 
+- html5
+
+1.주석처리 :
+- 코딩에 영향을 주지 않는 부분 
+  어떤 내용이나 기능에대해 설명하는 역할 
+2.html,css,javascript 이해
+  html : 맨얼굴(민낯)
+  css(cascading style sheet):  화장(makeup)
+  JavaScript : 동적으로 데이터나 DOM을 처리하는 녀석
+3.DOM(Document Object Model)
+  문서 객체 모델
+  검색엔진(SEO)에 잘 적용되기 위해서 만들어진 문서 
+  문서 자체가 트리 구조를 가지고 구현되어 있고,
+  그 문서안에 의미있게(semantic) 구성을 하게된다.
+4.html의 동작 
+  liteserver를 동작 시키지 않아도 
+  그냥 html파일을 더블클릭하면 동작이 된다.
+5.dom구조의 기본 
+  document 
+   html
+    head head
+    body body
+   html
+6.웹동작방식
+  frontend : html css javascript UI 
+  backend : UI X, 데이터 + 로직
+  index.jsp - httpd - servlet - java bean - DB  
+7.element(엘리먼트)
+  start tag + content + end tag
+8.div 태그 
+  html이나 javascript에서 가장 많이
+  사용하는 태그 
+  span 태그도 사용되지만 span은 span
+  태그안에 span을 사용하면 적용이 안된다.
+  형태를 가로 X 세로 의 형태로 사용된다.
+9.span 태그
+  필요할 때 그 부분만 적용할 때 사용하는 태그
+10.CSS 
+   html의 화면을 이쁘게 만들어주는 역할 
+   css3는 2d or 3d도 만들 수 있다.
+   css3는 animation도 가능하다.
+   정해진 태그나 클래스에 스타일을 입힐때
+   사용한다.
+11.HTML5는 Application Technology 다.
+   WHATWG에서 Application Technology로 만들었다.
+12.HTML5인지 확인하는 문장
+   <!DOCTYPE html>
+13.style, script 태그만 사용해도 됨
+   script 태그만 적용하면 JavaScript로 인식한다.
+
+
+        <label for="phone">phone:</label>
+        <!-- 필수 입력 항목 체크 -->
+        <input id="phone" name="phone" type="text" autofocus required><br>
+        
+        <!-- 이메일 타입 체크 -->
+        <label for="email">Email:</label>
+        <input id="email" name="email" type="email"><br>
+
+        <!-- 미리 글자 입력하기 -->
+        <label for="postNum">Post No</label>
+        <input name="postNum" type="text" placeholder="001-0000-0000"><br>
+
+        <!-- 날짜 가져오기 -->
+        <input type="date"><br>
+
+        <!-- 날짜 시간 가져오기 -->
+        <input type="datetime-local"><br>
+
+        <!-- 월 가져오기 -->
+        <input type="month"><br>
+        
+        <!-- 주 가져오기 -->
+        <input type="week"><br>
+
+        <!-- color 가져오기 -->
+        <input type="color"><br>
