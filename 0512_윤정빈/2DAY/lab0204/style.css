@@ -1,0 +1,37 @@
+/* 16. * : 모든 태그에 적용되는 것을 세팅 */
+* {
+    color: green;
+}
+
+li {
+    color: pink;
+}
+
+/* # : id를 지칭하는 이름 */
+#hhs {
+    color: blue;
+}
+
+.red {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+}
+
+button:hover{
+    color: red;
+    background: cyan;
+}
+
+a[href="https://www.daum.net"]{
+    color: rgb(113, 241, 21);
+}
+
+/* href that begins with "https://www.goo" -> change to orange color
+아래 2개에서 href 링크가 겹치는 경우, orange -> crimson (마지막꺼로 덮어쓰기 됨) */
+a[href^="https://www.goo"]{
+    color: orange;
+}
+a[href$="googledaum.net"]{
+    color: crimson;
+}
