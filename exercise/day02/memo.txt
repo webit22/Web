@@ -58,13 +58,14 @@ gdhong/
    css3는 animation도 가능하다.
    정해진 태그나 클래스에 스타일을 입힐때
    사용한다.
+   - id만 갖고있는 클래스들을 가져와서 css로 style 입힘 (클래스 여러 개 불러오기 가능)
 11.HTML5는 Application Technology 다.
    WHATWG에서 Application Technology로 만들었다.
 12.HTML5인지 확인하는 문장
    <!DOCTYPE html>
 13.style, script 태그만 사용해도 됨
    script 태그만 적용하면 JavaScript로 인식한다.
-
+   type="text/javascript" <- 이렇게 쓸 필요 없어짐.
 
         <label for="phone">phone:</label>
         <!-- 필수 입력 항목 체크 -->
@@ -74,7 +75,7 @@ gdhong/
         <label for="email">Email:</label>
         <input id="email" name="email" type="email"><br>
 
-        <!-- 미리 글자 입력하기 -->
+        <!-- 미리 글자 표시하기 -->
         <label for="postNum">Post No</label>
         <input name="postNum" type="text" placeholder="001-0000-0000"><br>
 

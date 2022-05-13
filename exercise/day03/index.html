@@ -1,0 +1,54 @@
+<!-- 페이지 크기 줄였다 늘릴때 동적으로 변화하는 홈페이지 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폴리텍 반응형 페이지 만들기</title>
+
+    <!-- 
+        14. style 파일을 따로 작성해서 import 하기
+            1) style ... /style
+            2) link rel="stylesheet" href="경로+style.css"
+     -->
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navibar">
+        <div class="navbar_logo">
+            <a href="#">DataAnalysis</a>
+        </div>
+
+        <!-- ul tag의 navbar_menu 라는 클래스 생성 : ul.navbar_menu + 엔터 -->
+        <ul class="navbar_menu">
+            <!-- list 안에 anchor tag 5개 생성 : li>a*5 -->
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="">Photo</a>
+            </li>
+            <li>
+                <a href="">Schedule</a>
+            </li>
+            <li>
+                <a href="">FAQ</a>
+            </li>
+            <li>
+                <a href="">Booking</a>
+            </li>
+        </ul>
+        <ul>
+            <li>Meta icon</li>
+            <li>Twitter icon</li>
+        </ul>
+        <a href="#" class="navbar_toggleBtn">
+            <i>toggle button</i>
+        </a>
+
+    </nav>
+</body>
+</html>
