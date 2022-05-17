@@ -1,0 +1,6 @@
+# API는 아래와 같은 방식들로 사용됨
+CANVAS 태그 : 2D, 3D
+VIDEO 태그
+DRAG AND DROP 태그
+WebSocket
+WebWorker

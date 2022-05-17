@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript-01</title>
+
+    <!--     
+        javascript를 어디에 선언해야할까?
+        기본적으로는 head와 head 사이에 작성한다.
+        head
+            script    /script
+        /head
+        이렇게 사용하게 되면 문제가 발생할 수 있음.
+        javascript 성능 최적화 - 빨간색 더글라스 크락포드의 책
+        body tag의 맨 마지막 바로 위에 script 코드를 작성해야 성능이 좋다.
+        DOM 구조가 다 올라오기도 전에 javascript가 호출될 수도 있기 때문에, 
+        그렇게 되면 오류가 발생한다.
+        그러므로, javascript code는 body script script body 
+        이렇게 사용해야 한다.
+        
+        javascript를 실행하는 방법
+        1) script tag 안에 사용
+          <script>
+            document.write("hello~");
+          </script>
+
+        2) WebBrowser 안에서도 javascript 사용 가능
+           WebBrowser - 개발자 환경 - console 에서 사용 가능
+           console.log("hi");
+
+        3) node 에서 실행할 수도 있음
+            node console에서 실행
+            - node
+            - console.log("hi");
+
+            node app.js 로 실행
+            : 실행할 js 파일이 있는 위치까지 이동(cd .\js)해서 node로 실행한다.
+
+        4) javascript를 .js 파일로 만들어서 load 할 수 있음
+            <script src="js/app.js"></script>
+     -->
+
+    <script>
+      document.write("hi!!");
+    </script>
+  </head>
+
+  <body></body>
+</html>
