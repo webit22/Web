@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnEle = document.querySelector("button");
 
   //   각각의 element에 이벤트를 연결시켜준다. 마우스로 각 결과 라인을 클릭해야 색상 바뀜
+  // "click" 은 API document에 정의되어 있으므로 절대 오타나면 안됨!
   boxEle.addEventListener("click", function (e) {
     e.currentTarget.style.backgroundColor = "red";
   });
