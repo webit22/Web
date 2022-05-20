@@ -1,6 +1,8 @@
 // arrow function(화살표 함수)
 // browser에서 테스트 할 수 있는 API이다.
 // 항상 이 모양부터 먼저 만들고 시작 : setTimeout(function(){});
+//  -> setTimeout : ms 지연후에 실행되는 함수
+//                  (콜백함수)
 // 1000 : 1초 뒤에 "화살표 함수입니다." 가 콘솔창에 뜬다
 // setTimeout(function () {
 //   console.log("화살표 함수입니다.");

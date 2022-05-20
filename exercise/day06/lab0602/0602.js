@@ -51,7 +51,7 @@
 // // const와 immutable array 확인해보기 (실패 사례)
 // function fruit() {
 //   const list = ["apple", "orange", "watermelon"];
-//   list = "podo"; // 그냥 이렇게 할당은 안된다! (에러남)
+//   list = "podo"; // 이렇게 할당 X
 // }
 // fruit();
 
@@ -123,7 +123,16 @@
 
 // Destructuring 활용 JSON 파싱
 // JSON : 큰 대괄호 안에 data들이 세트로 존재하는 모양
-var news = [
+// xml -> JSON
+// <samsung>
+//   <name>삼성전자</name>
+//   <price>70000</price>
+//   <up></up>
+//   <down>10%</down>
+// </samsung>
+
+// news -> 대괄호(배열), 중괄호(객체)
+const news = [
   {
     title: "sbs",
     imgurl:
