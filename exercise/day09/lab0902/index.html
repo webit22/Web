@@ -15,7 +15,7 @@
 
             // 2. 서버와 통신할 때 사용할 처리법을 등록한다.
             req.onreadystatechange = function(){
-                // 처리상태가 4일 때, 상태코드가 200(= 요청 성공)이면
+                // 처리상태가 4일 때, 상태코드(응답코드)가 200(= 요청 성공)이면
                 // id="view" 의 text값 가져온다.
                 if (req.readyState === 4){
                     if(req.status === 200){
