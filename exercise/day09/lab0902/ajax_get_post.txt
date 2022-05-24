@@ -1,0 +1,25 @@
+// 응답 요청을 처리하는 부분(req)
+요청을 전송해서 통신 시작하기
+- req.open(method, url, [async, user, password]); // 앞에 2개는 필수, 나머지는 옵션
+- method : HTTP 메소드 GET, POST, PUT, DELETE
+- url : 접근할 url
+- async : 비동기 통신여부 (선택, 기본적으로는 비동기 true)
+- user : 인증할 때의 사용자 이름 (선택)
+- password : 인증할 때의 암호 (선택)
+
+GET 방식으로 오픈을 하게되면
+직접 send 메소드로 요청을 보내서 서버와 통신을 시작한다.
+- req.open("GET", "data.txt") // 통신방식, 파일명 지정
+- req.send(null);
+
+POST 방식으로 보내려면
+- req.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+- req.send("name=" + encodeURIComponent(value));
+
+- 위의 코드는 쿼리 문자열로 만들어 send에서 보내지만
+  아래의 데이터도 보낼 수 있다. 
+- DOMString 문자열 타입
+- FormData  폼데이터
+- ArrayBufferView 바이너리 데이터
+- Blob Blob객체, File 객체 
+- Document HTML의 Document 객체
