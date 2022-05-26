@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title>jQuery 찾는 방법 - tag</title>
+</head>
+<body>
+   <h1>테스트 마우스 이벤트</h1>
+   <div id="name">
+       손흥민
+   </div>
+   <div id="age" class="age_style test">
+       29
+   </div>
+   <a href="#">손흥민SNS</a>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script>
+    //    여기서의 this는 이벤트가 발생한 그 시점의 객체를 가리킨다.
+       $('#age, h1').mouseover(function(){
+           $(this).css('background-color','#e26500');
+        // $('#age, h1').css('background-color','#e26500');
+        // 위의 this와 같은 역할을 하는 코드인데 this를 사용하지 않으면 
+        // 다시 선택자에 있는 내용을 찾기 때문에 효율적이지 않다.
+        })
+        .mouseout(function(){
+           $(this).css('background-color','white');
+       });
+   </script>
+</body>
+</html>

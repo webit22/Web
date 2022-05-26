@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 선택자</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div class="box">jQuery 테스트1</div>
+    </div>
+    <div class="btn-box">
+        <div class="btn-reset">선택자 테스트2</div>
+    </div>
+    <div class="test-box">
+        <div class="test-sel">선택자 테스트3</div>
+    </div>
+    <script>
+        // dom이 다 로드된 후에 실행되되도록 처리
+        $(function(){
+            // 1. css 속성 하나만 적용할 때
+            // $('.box').css('color','red');
+            // $('.test-box .test-selector').css('border-bottom','10px solid orange');
+            // 2. 여러개의 선택자를 조합해서 적용할 때
+            // $('.btn-box .btn-reset').css({color:'blue'});
+            // $('div .btn-reset').css({color:'red'});
+            // 3. 글씨를 회전시켜 보자. 
+            // $('.test-box .test-sel').css('transform','rotate(45deg)');
+        });
+    </script>
+</body>
+</html>

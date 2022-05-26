@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button onclick="getUser()">클릭</button>
+    <div id="userInfo"></div>
+    <script>
+        // url로 접근해서 데이터를 가져오기
+      function getUser() {
+        
+        // 에러 발생되도록 데이터 수정
+        const config = {
+          method: "gettest"
+        };
+        
+        fetch("https://jsonplaceholder.typicode.com/users/1", config)
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => alert(error)); // alert창으로 에러발생 알려주기
+      }
+
+    </script>
+  </body>
+</html>
