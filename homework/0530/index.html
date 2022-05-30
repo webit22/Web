@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div { 
+            width: 100px;
+            height: 100px;
+            float: left;
+            text-align: center;
+        }
+        #sun {
+            background-color: red;
+        }
+        #mon {
+            background-color: orange;
+        }
+        #tues {
+            background-color: yellow;
+        }
+        #wed {
+            background-color: green;
+        }
+        #thurs {
+            background-color: blue;
+        }
+        #fri {
+            background-color: darkblue;
+        }
+        #sat {
+            background-color: purple;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            let widthBefore;
+            let heightBefore;
+            let text = document.querySelector.innerHTML;
+
+            $('div').bind('mouseover', function(event){
+                widthBefore = $(this).css('width');
+                heightBefore = $(this).css('height');
+                $(this).css({
+                    "width" : "150px",
+                    "height" : "150px",
+                });
+                // $(this).append("요일");
+            })
+
+            $('div').bind('mouseout', function(event){
+                $(this).css({
+                    "width" : widthBefore,
+                    "height" : heightBefore
+                });
+            });
+        })
+
+    </script>
+</head>
+<body>
+    <div id="sun">일</div>
+    <div id="mon">월</div>
+    <div id="tues">화</div>
+    <div id="wed">수</div>
+    <div id="thurs">목</div>
+    <div id="fri">금</div>
+    <div id="sat">토</div>
+</body>
+</html>
