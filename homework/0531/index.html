@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화 순위 정보</title>
+    <style>
+        #searchResult {
+            width: 300px;
+            height: 600px;
+            border: red solid 1px;
+            padding: 10px;
+            text-align: center;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', '#searchBtn', function(){
+                callAPI(1);
+            });
+        });
+
+        function callback(result){
+            // console.log(result);
+            let list = result.boxOfficeResult.dailyBoxOfficeList;
+            let movieData, rank, name, audiCnt, code;
+            $('#searchResult').empty();
+
+            for(let i = 0; i < 5; i++){
+                movieData = list[i];
+                rank = movieData.rank;
+                name = movieData.movieNm;
+                audiCnt = movieData.audiCnt;
+                code = movieData.movieCd;
+
+                $('#searchResult').append('<h4>' + rank + '위</h4>');
+                $('#searchResult').append(`<strong>${name}</strong>(${audiCnt}명)<br>`);
+                $('#searchResult').append(`<button id="${code}" class="dropdown">상세조회</button>`);
+                $('#searchResult').append('<hr>');
+            };
+
+            /* document ready -> 아직 읽어오지 않았기 때문에 실행이 안 됨. on 사용. */
+            $(document).on('click', 'button.dropdown', function (){
+                callAPI(2);
+            });
+        }
+
+        function callback2(result) {
+            console.log(result);
+            let list2 = result.movieInfoResult.movieInfo;
+            console.log(list2);
+
+            let movieData = list2;
+            let code = movieData.movieCd;
+            let directors = movieData.directors;
+            let genre = movieData.genres;
+            let actors;
+
+            // 동적으로 공간 생성, 결과 뿌려주기
+            $(`#btn${code}`).empty()
+            $(`#btn${code}`).append(`감독: ${directors[0].peopleNm}<br>`)
+            $(`#btn${code}`).append(`장르: ${genre[0].genreNm}<br>`)
+            $(`#btn${code}`).append('배우들: <br>')
+
+            if(movieData.actors.length > 5){
+                for(let i = 0; i < 5; i++){
+                    actors = movieData.actors[i];
+                    $(`#btn${code}`).append(`${i+1} : ${actors[i].peopleNm} (${actors[i].cast}역)<br>`)
+                }
+            }
+            $(`#btn${code}`).toggle();
+        }
+
+        function callAPI(num){
+            switch (num){
+                // search : 특정 날짜의 박스오피스
+                case 1 :
+                    let date = $('#searchDate').val().split('-').join('');
+                    $.ajax({
+                        type: 'get'
+                        , url: 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json'
+                        , data: {
+                            key: '7c29f9b1bba47e849212ed25ff55d147'
+                            , targetDt: date
+                        }, success: callback
+                        , error: function(){
+                            alert('api01 response failed!');
+                        }
+                    });
+                    break;
+
+                // search : 영화 정보 상세 조회
+                case 2 :
+                    let id =$('#searchResult > button').attr('id')
+                    $.ajax({
+                        type: 'get'
+                        , url: 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json'
+                        , data: {
+                            key: '7c29f9b1bba47e849212ed25ff55d147'
+                            , movieCd: id
+                        }, success: callback2
+                        , error: function(){
+                            alert('api02 response failed!');
+                        }
+                    });
+                    break;
+
+                default :
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>일별 박스오피스 조회 서비스</h2>
+    조회 일자 : <input type="date" id="searchDate">
+    <button id="searchBtn">조회</button>
+    <h3>조회 결과</h3>
+    <div id="searchResult"></div>
+</body>
+</html>
