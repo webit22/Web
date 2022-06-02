@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#searchResult{
+		width: 70%;
+		height: 1000px;
+		border: 1px solid red;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function () {
+		$('#searchBtn').click(function () {
+			
+			let searchDate = $('#searchDate').val().split('-').join('')
+			
+			$.ajax({
+				type: 'get'
+				, url: 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json'
+				, data: {
+					key: '7c29f9b1bba47e849212ed25ff55d147'
+					//, targetDt: '20220530'
+					, targetDt: searchDate
+				}, success: callback
+				, error: function () {
+					alert('failed!')
+				}
+			})
+		})
+	})
+	
+	// 콘솔에 데이터 부분을 찍어서 필요한 값이 뭔지 가져옴.
+	function callback(result) {
+		let list = result.boxOfficeResult.dailyBoxOfficeList
+		
+		// 기존 정보를 삭제하고 비워진 네모칸 안에 새로 데이터 가져옴
+		$('#searchResult').empty()
+		
+		for(let i = 0; i < list.length; i++){
+			/* console.log(list[i]) */
+			let movieData = list[i]
+			let rank = movieData.rank
+			let name = movieData.movieNm
+			let audiCnt = movieData.audiCnt
+			
+			$('#searchResult').append('<h4>' + rank + '위</h4>')
+			$('#searchResult').append(`<strong>${name}</strong>(${audiCnt}명)`)
+			$('#searchResult').append('<hr>')
+		}
+	}
+</script>
+</head>
+<body>
+	<h2>일별 박스오피스 조회서비스</h2>
+	조회날짜 : <input type="date" id="searchDate">
+	<button id="searchBtn">조회</button>
+	<h3>조회 결과</h3>
+	<div id="searchResult"></div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+	$('button').click(function() {
+		
+		let name = $('#name').val()
+		let age = document.getElementById("age").value
+		
+		let params = {
+			name: name
+			, age: age
+		}
+		
+		$.post('param.jsp', params, function (result) {
+			$('#msgView').val(result)
+		})
+		
+		/*
+		$.post('param.jsp', {name: 'hong', age: 25}, function (result) {
+			$('#msgView').val(result)
+		})
+		*/
+		/*
+		// param.jsp가 가진 내용을 요청 (응답으로 보내줘)
+		$.ajax({
+			url: 'param.jsp'
+			, type: 'get'
+			, data : {
+				name: name
+				, age: age
+			}
+			, success: function(data) {
+				$('#msgView').val(data)
+			}, error: function() {
+				alert('실패')
+			}
+		})
+		*/
+		
+		/*
+		$.ajax({
+			url: 'param.jsp'
+			, type: 'get'
+			//, data: 'name=hong&age=25'
+			, data : {
+				name: 'hong'
+				, age: 25
+			}
+			, success: function(data) {
+				$('#msgView').val(data)
+			}, error: function() {
+				alert('실패')
+			}
+		})
+		*/
+	})
+})
+
+</script>
+</head>
+<body>
+	<textarea rows="10" cols="80" id="msgView"></textarea><br>
+	이름 : <input type="text" name="name" id="name"><br>
+	나이 : <input type="text" name="age" id="age"><br>
+	
+	<button>전송</button>
+</body>
+</html>
